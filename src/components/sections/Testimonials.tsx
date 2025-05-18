@@ -176,7 +176,7 @@ export default function Testimonials() {
                   variant="outline"
                   size="icon"
                   aria-label="Previous testimonial"
-                  
+                  className='text-[var(--color-secondary)]'
                 >
                   <ArrowLeft />
                 </Button>
@@ -186,7 +186,7 @@ export default function Testimonials() {
                   variant="outline"
                   size="icon"
                   aria-label="Next testimonial"
-                  
+                  className='text-[var(--color-secondary)]'
                 >
                   <ArrowRight />
                 </Button>

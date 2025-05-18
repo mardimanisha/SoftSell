@@ -148,7 +148,7 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" size="lg" className="w-full md:w-auto border-black text-black bg-[var(--color-bg-accent)] hover:bg-black hover:text-[var(--color-bg-accent)] transition-all duration-200">
+        <Button type="submit" size="lg" className="w-full md:w-auto border-[var(--color-secondary)] text-[var(--color-bg-accent)] bg-[var(--color-secondary)] hover:bg-[var(--color-bg-accent)] hover:text[var(--color-secondary)] transition-all duration-200">
           Send Message
         </Button>
       </form>
