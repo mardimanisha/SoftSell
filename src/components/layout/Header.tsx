@@ -12,13 +12,13 @@ export function Header() {
               <path d="M2 17l10 5 10-5"></path>
               <path d="M2 12l10 5 10-5"></path>
             </svg>
-            <span className="font-extrabold sm:inline-block text-xl text-foreground">
+            <span className="font-extrabold sm:inline-block text-xl text-[var(--color-secondary)]">
               SoftSell
             </span>
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <nav className="flex items-center">
+          <nav className="flex items-center text-[var(--color-secondary)]">
             <ThemeToggle />
           </nav>
         </div>
