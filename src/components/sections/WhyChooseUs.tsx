@@ -14,7 +14,7 @@ export default function WhyChooseUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-gray-900"
+          className="text-3xl md:text-4xl font-bold text-[var(--color-secondary)]"
         >
           Why Choose SoftSell
         </motion.h2>
@@ -43,12 +43,12 @@ export default function WhyChooseUs() {
                                 <div className="mb-3 flex items-center justify-center sm:justify-start">
                                     <item.icon className="w-8 h-8 text-lime-800" />
                                 </div>
-                                <CardTitle className="text-xl font-semibold text-gray-900 w-full">
+                                <CardTitle className="text-xl font-semibold text-black w-full">
                                     {item.title}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="">
-                                <p className="text-[var(--color-muted)] text-sm">
+                                <p className="text-muted-foreground text-md">
                                     {item.description}
                                 </p>
                             </CardContent>

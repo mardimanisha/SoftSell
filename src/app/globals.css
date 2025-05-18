@@ -14,7 +14,7 @@
   --color-bg-secondary: rgba(203, 243, 99, 0.37);
   --color-bg-accent: #cbf363;
   --color-primary: #000;
-  --color-secondary: #1a202c;
+  --color-secondary: #000;
   --color-accent: #cbf363;
   --color-text: #1f2937;
   --color-muted: rgba(28, 29, 26, 0.5);
@@ -56,15 +56,17 @@
 /* === DARK MODE OVERRIDE === */
 .dark {
   --color-bg: #0d1117;
+  --color-bg-primary: rgba(203, 243, 99, 0.58);
   --color-bg-secondary: #161b22;
-  --color-primary: #57d364;
-  --color-secondary: #ffffff;
+  --color-bg-accent: #000;
+  --color-primary: #000;
+  --color-secondary: rgba(203, 243, 99, 0.58);
   --color-accent: #b1f38f;
   --color-text: #f9fafb;
   --color-muted: #9ca3af;
   --color-border: #2f3b4a;
   --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --foreground: #0d1117;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -74,7 +76,7 @@
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: rgba(28, 29, 26, 0.5);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);

@@ -3,6 +3,7 @@ import { Geist } from 'next/font/google'; // Using Geist Sans directly
 import './globals.css';
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
 import { Toaster } from "@/components/ui/sonner";
+import Head from 'next/head';
 
 const geist = Geist({
   variable: '--font-geist-sans',
@@ -22,6 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      </Head>
+
       <body className={`${geist.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"

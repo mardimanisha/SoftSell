@@ -59,8 +59,8 @@ export default function Testimonials() {
 
 
   return (
-    <section className="w-full px-4 py-16 md:py-24 text-center bg-white">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What Our Customers Say</h2>
+    <section className="w-full px-4 py-16 md:py-24 text-center bg-[var(--color-bg)]">
+      <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-secondary)]">What Our Customers Say</h2>
       <p className="mt-4 text-lg text-[var(--color-muted)] max-w-xl mx-auto">
         Trusted by IT professionals and businesses of all sizes
       </p>
@@ -126,23 +126,23 @@ export default function Testimonials() {
                   viewport={{ once: true }}
                   className="min-w-[calc(50%-1.5rem)] md:min-w-[calc(33.333%-1rem)] lg:min-w-[calc(33.333%-1rem)] snap-start" // Adjust card width for 2 or 3 cards
                 >
-                  <Card className="w-full h-full flex flex-col text-left shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                  <Card className="w-full h-full flex flex-col text-left shadow-xl bg-[var(--color-bg-primary)] hover:shadow-2xl transition-shadow duration-300">
                     <CardHeader className="flex-grow">
                       <div className="flex flex-row items-start gap-4">
-                        <Avatar className="h-14 w-14 bg-[var(--color-accent)] text-black mt-1">
-                           <AvatarFallback className="text-xl bg-[var(--color-accent)] text-black">{testimonial.initials}</AvatarFallback>
+                        <Avatar className="h-14 w-14 bg-[var(--color-bg-accent)] text-[var(--color-secondary)] mt-1">
+                           <AvatarFallback className="text-xl bg-[var(--color-bg-accent)] text-[var(--color-secondary)]">{testimonial.initials}</AvatarFallback>
                         </Avatar>
                         <div className="flex-1">
                           <div className="flex gap-0.5 mb-1.5">
                             {Array(testimonial.rating)
                               .fill(0)
                               .map((_, i) => (
-                                <Star key={i} className="h-5 w-5 text-[var(--color-accent)] fill-[var(--color-accent)]" />
+                                <Star key={i} className="h-5 w-5 text-gray-900 fill-gray-900" />
                               ))}
                             {Array(5 - testimonial.rating)
                               .fill(0)
                               .map((_, i) => (
-                                <Star key={i + testimonial.rating} className="h-5 w-5 text-accent" />
+                                <Star key={i + testimonial.rating} className="h-5 w-5 text-gray-900" />
                               ))}
                           </div>
                           <p className="italic text-base text-muted-foreground leading-relaxed line-clamp-5">{testimonial.feedback}</p>
@@ -150,9 +150,9 @@ export default function Testimonials() {
                       </div>
                     </CardHeader>
                     <CardContent className="pt-2 mt-auto">
-                       <div className="ml-[calc(3.5rem+1rem)]"> {/* Aligns with text block, considering avatar and gap */}
-                        <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-sm text-[var(--color-muted)]">{testimonial.position}</p>
+                       <div className="ml-[calc(3.5rem+1rem)]"> 
+                        <p className="font-semibold text-black">{testimonial.name}</p>
+                        <p className="text-sm text-muted-foreground">{testimonial.position}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -182,7 +182,7 @@ export default function Testimonials() {
                 </Button>
                 <Button
                   onClick={handleNext}
-                  disabled={currentIndex >= testimonials.length - (isMobile ? 1 : 3) } // Adjust based on visible cards
+                  disabled={currentIndex >= testimonials.length - (isMobile ? 1 : 3) } 
                   variant="outline"
                   size="icon"
                   aria-label="Next testimonial"
@@ -199,164 +199,3 @@ export default function Testimonials() {
 }
 
 
-{/*
-  'use client';
-
-import { useEffect, useRef, useState } from 'react';
-import {  motion } from 'framer-motion';
-import { testimonials } from '@/constants/feedback';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader } from '@/components/ui/card';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-
-const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-
-  return (
-    <section className="w-full px-4 py-10 md:py-20 text-center bg-white">
-      <h2 className="text-3xl font-bold text-gray-900">What Our Customers Say</h2>
-      <p className="mt-4 text-base sm:text-2xl text-[var(--color-muted)]">Trusted by IT professionals and businesses of all sizes</p>
-
-      {isMobile ? (
-        // Mobile: Vertical stacked cards
-        <div className="mt-10 flex flex-col items-center gap-6">
-          {testimonials.map((testimonial, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <Card className="w-96 border-2">
-                    <CardHeader>
-                      <div className='flex flex-row items-start gap-6'>
-                        <div className="bg-lime-300 rounded-full mt-6 h-8 w-30 flex items-center justify-center font-bold text-white">
-                          {testimonials[currentIndex].initials}
-                        </div>
-
-                        <div className='flex flex-col text-left'>
-                          <div className="flex gap-1 mb-1 text-lime-500">
-                            {Array(testimonials[currentIndex].rating)
-                              .fill(0)
-                              .map((_, i) => (
-                                <span key={i}>★</span>
-                              ))}
-                          </div>
-
-                          <p className="italic text-sm">{testimonials[currentIndex].feedback}</p>
-
-                          <div className='mt-2'>
-                            <p className="font-semibold">{testimonials[currentIndex].name}</p>
-                            <p className="text-sm text-gray-400">{testimonials[currentIndex].position}</p>
-                          </div>
-                        </div>
-                      </div>
-                  </CardHeader>
-                </Card>
-            </motion.div>
-          ))}
-        </div>
-      ) : (
-        
-        // Desktop: Horizontal scroll with arrows below
-                                           
-// Desktop: Horizontal scroll with arrows below
-<div className="mt-10 flex flex-col items-center w-full">
-  <div
-    ref={scrollRef}
-    className="flex gap-6 overflow-x-auto scroll-smooth transition-all w-full max-w-5xl px-2 scrollbar-hide"
-  >
-    {testimonials.map((testimonial, idx) => (
-      <motion.div
-        key={idx}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        viewport={{ once: true }}
-        className="min-w-full"
-      >
-        <Card className="w-full py-8">
-          <CardHeader>
-            <div className="flex flex-row items-start gap-6">
-              <div className="bg-lime-300 rounded-full mt-12 h-16 w-28 flex items-center justify-center font-bold text-2xl text-white">
-                {testimonial.initials}
-              </div>
-
-              <div className="flex flex-col text-left">
-                <div className="flex gap-1 mb-1 text-lime-500">
-                  {Array(testimonial.rating)
-                    .fill(0)
-                    .map((_, i) => (
-                      <span key={i} className="text-3xl">★</span>
-                    ))}
-                </div>
-
-                <p className="italic text-xl">{testimonial.feedback}</p>
-
-                <div className="mt-2">
-                  <p className="font-semibold text-xl">{testimonial.name}</p>
-                  <p className="text-xl text-[var(--color-muted)]">{testimonial.position}</p>
-                </div>
-              </div>
-            </div>
-          </CardHeader>
-        </Card>
-      </motion.div>
-    ))}
-  </div>
-
-
-  <div className="flex gap-4 mt-6">
-    <Button
-      onClick={() => {
-        if (currentIndex > 0) {
-          setCurrentIndex(currentIndex - 1);
-          scrollRef.current?.scrollBy({ left: -scrollRef.current.offsetWidth, behavior: 'smooth' });
-        }
-      }}
-      disabled={currentIndex === 0}
-      variant="outline"
-      size="icon"
-    >
-      <ArrowLeft />
-    </Button>
-    <Button
-      onClick={() => {
-        if (currentIndex < testimonials.length - 1) {
-          setCurrentIndex(currentIndex + 1);
-          scrollRef.current?.scrollBy({ left: scrollRef.current.offsetWidth, behavior: 'smooth' });
-        }
-      }}
-      disabled={currentIndex === testimonials.length - 1}
-      variant="outline"
-      size="icon"
-    >
-      <ArrowRight />
-    </Button>
-  </div>
-</div>
-
-
-
-      )}
-    </section>
-  );
-};
-
-export default Testimonials;
- */}

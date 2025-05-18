@@ -14,7 +14,7 @@ export const HowItWorks = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl font-bold text-gray-900">How It Works</h2>
+        <h2 className="text-3xl font-bold text-[var(--color-secondary)]">How It Works</h2>
         <p className="mt-4 text-base sm:text-2xl text-[var(--color-muted)]">
           Selling your unused software licenses is simple and secure with our three-step process
         </p>
@@ -34,7 +34,7 @@ export const HowItWorks = () => {
               <step.icon className="w-6 h-6 text-lime-800" />
             </div>
             <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-            <p className="text-md font-semibold text-[var(--color-muted)]">{step.description}</p>
+            <p className="text-md font-semibold text-muted-foreground">{step.description}</p>
           </motion.div>
         ))}
       </div>
