@@ -116,7 +116,7 @@ export default function ContactForm() {
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a license type" />
+                    <SelectValue placeholder="Select a license type" className="!text-[var(--color-muted)]"/>
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -140,7 +140,7 @@ export default function ContactForm() {
               <FormControl>
                 <Textarea
                   placeholder="Tell us about the licenses you want to sell or ask any questions..."
-                  className="resize-none min-h-[120px]"
+                  className="resize-none min-h-[120px] text-[var(--color-muted)]"
                   {...field}
                 />
               </FormControl>
