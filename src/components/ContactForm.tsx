@@ -56,7 +56,7 @@ export default function ContactForm() {
   });
 
   function onSubmit(data: ContactFormValues) {
-    console.log(data); // In a real app, you'd send this data to a backend
+    console.log(data); 
     toast.success("Message Sent!", {
       description: "Thanks for reaching out. We'll get back to you soon.",
     });
@@ -116,7 +116,7 @@ export default function ContactForm() {
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a license type" className="!text-[var(--color-muted)]"/>
+                    <SelectValue placeholder="Select a license type" className="text-[var(--color-muted)]"/>
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
